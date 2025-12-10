@@ -26,7 +26,10 @@
                     :value="formData.password"
                 />
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" :disabled="isPending" class="btn btn-primary">Submit</button>
+            <div class="" v-if="isError">
+                {{ error }}
+            </div>
         </form>
     </div>
 </template>
@@ -42,6 +45,7 @@ const InputComponent = defineAsyncComponent(() => import('@/components/InputComp
 
 const storeAuth = useAuthStore();
 const loginMutation = storeAuth.login();
+const { mutate, isPending, error, isError } = loginMutation
 const formData = ref({
     email: '',
     password: ''
@@ -51,13 +55,12 @@ const { onInvalidSubmitError } = useFormErrorHandler();
 const { handleSubmit } = useForm();
 
 const onSubmit = handleSubmit(() => {
-    loginMutation.mutate(formData.value, {
+    mutate(formData.value, {
         onSuccess: () => {
-            console.log('success');
             router.push({ name: 'Home' });
         },
-        onError: () => {
-            console.log('error');
+        onError: (errorCatch) => {
+            console.log('errorCatch', errorCatch);
         }
     });
 }, onInvalidSubmitError);
