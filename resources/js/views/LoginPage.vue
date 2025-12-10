@@ -36,7 +36,7 @@
 
 <script lang="ts" setup>
 import { defineAsyncComponent, ref } from 'vue';
-import { useAuthStore } from '@/stores/AuthStore';
+import { useAuthStore } from '@/stores/auth';
 import router from '@/router';
 import { useFormErrorHandler } from '@/utils/useFormHandler';
 import { useForm } from 'vee-validate';

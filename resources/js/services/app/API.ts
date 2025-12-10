@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { convertKeysToSnakeCase } from '@/utils/useConverter';
-import { useErrorStore } from '@/stores/ErrorStore';
+import { useErrorStore } from '@/stores/error';
 
 import type {
     AxiosError,

@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
 import Auth from '@/services/app/Auth'
 import { useMutation } from '@tanstack/vue-query';
+import { Response } from '@/shared/interfaces/response';
+import { LoginResponse } from '@/shared/interfaces/user';
 
 interface AuthState {
     token: string | null
@@ -19,11 +21,11 @@ export const useAuthStore = defineStore('auth', {
                     const { data } = await Auth.login(payload)
                     return data
                 },
-                onSuccess: (data) => {
-                    this.token = data.token
-                    this.user = data.user
-                    localStorage.setItem('token', data.token)
-                    localStorage.setItem('user', JSON.stringify(data.user))
+                onSuccess: (data: Response<LoginResponse>) => {
+                    this.token = data?.result.token
+                    this.user = data?.result.user
+                    localStorage.setItem('token', this.token)
+                    localStorage.setItem('user', JSON.stringify(this.user))
                 },
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 onError: (error: any) => {

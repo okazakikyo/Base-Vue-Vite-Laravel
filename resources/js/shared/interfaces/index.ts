@@ -1,4 +1,4 @@
-import { useAuthStore } from "@/stores/AuthStore";
+import { useAuthStore } from "@/stores/auth";
 import { NavigationGuardNext, RouteLocationNormalizedGeneric, RouteLocationNormalizedLoadedGeneric } from "vue-router";
 
 export interface RouterMeta {

@@ -7,7 +7,7 @@ import {
     RouteRecordRaw,
 } from "vue-router";
 import { RouteGuard, RouterMeta } from "@/shared/interfaces/index";
-import { useAuthStore } from "./stores/AuthStore";
+import { useAuthStore } from "./stores/auth";
 import auth from "./middlewares/auth";
 import { ROUTE } from "./shared/constants/routing";
 
