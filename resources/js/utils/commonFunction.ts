@@ -24,3 +24,12 @@ export const useLimitText = (text: string, limit: number = 22): string => {
     }
     return text;
 };
+
+export function isEmptyObject(obj: unknown): boolean {
+    return (
+        obj !== null &&
+        typeof obj === 'object' &&
+        !Array.isArray(obj) &&
+        Object.keys(obj).length === 0
+    )
+}
