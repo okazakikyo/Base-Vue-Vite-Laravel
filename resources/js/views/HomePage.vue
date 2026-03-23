@@ -327,6 +327,7 @@ const descriptionPreview = computed(() => {
         font-size: 1rem;
         line-height: 1.8;
         color: #455066;
+        white-space: pre-line;
     }
 
     &__meta {
