@@ -66,6 +66,33 @@ const routes: RouteRecordRaw[] = [
             title: ROUTE.TITLE.LOGIN,
         },
     },
+    {
+        path: ROUTE.PATH.INTERVIEW_QUESTIONS,
+        name: ROUTE.NAME.INTERVIEW_QUESTIONS,
+        component: () => import("@/views/InterviewQuestionsPage.vue"),
+        meta: {
+            title: ROUTE.TITLE.INTERVIEW_QUESTIONS,
+            middleware: [auth],
+        },
+    },
+    {
+        path: ROUTE.PATH.INTERVIEW_QUIZ,
+        name: ROUTE.NAME.INTERVIEW_QUIZ,
+        component: () => import("@/views/InterviewQuizPage.vue"),
+        meta: {
+            title: ROUTE.TITLE.INTERVIEW_QUIZ,
+            middleware: [auth],
+        },
+    },
+    {
+        path: ROUTE.PATH.OCR,
+        name: ROUTE.NAME.OCR,
+        component: () => import("@/views/OcrPage.vue"),
+        meta: {
+            title: ROUTE.TITLE.OCR,
+            middleware: [auth],
+        },
+    }
 ];
 
 const router = createRouter({
